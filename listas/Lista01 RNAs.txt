@@ -1,0 +1,47 @@
+Atividade 1 de RNAs
+A atividade valerá ponto e deve ser entregue de forma INDIVIDUAL até às 18h00 do dia 21.02.2024.
+
+Nome do Aluno: Francisco Aldenor Silva Neto
+ 
+Matrícula: 20221045050117 
+ 
+1 - Quais os componentes que fazem parte de uma RNA?
+ 
+2 - Qual a diferença da IA simbólica para a IA conexionista?
+ 
+3 - Para que serve a função de ativação?
+ 
+4 - Em relação a modelagem matemática de uma RNA, onde são guardadas as informações durante seu processo de aprendizagem?
+ 
+5 - Dado o modelo do neurônio de M-P calcule o valor de “u”, tendo como valores de entradas: x1 = 0.1, x2= 0.25, x3= -0.15 e  x4= -1.5, e os pesos são: w1= 0.4, w2 = 0.1, w3 = -0.8 e  w4 = 0.01. Importante lembrar que w0 = -1.
+
+6 - O que é a perceptron? Diga também Qual a diferença dela para o neurônio de M.P?
+ 
+7 - Qual o objetivo da regra delta?
+ 
+8 - Implemente um neurônio de McCulloch-Pitts em uma linguagem de programação de sua escolha. O neurônio deve receber três entradas binárias (0 ou 1) e emitir um sinal de saída de acordo com a seguinte lógica:
+Se pelo menos duas das entradas são iguais a 1, o neurônio emite um sinal de saída igual a 1. Caso contrário, emite um sinal de saída igual a 0.
+Considere que todos os pesos são 1s. 
+Instruções:
+- Implemente a função neuronio_MP que recebe três entradas binárias e retorna a saída do neurônio de acordo com a lógica especificada.
+- Teste a função com diferentes combinações de entradas para garantir que ela está funcionando corretamente.
+- Explique como a lógica do neurônio de McCulloch-Pitts é aplicada no código.   
+
+*Pode fazer o upload do código comentado, logo no próprio código pode responder os questionamentos da questão de forma comentada.
+9 - Considere a implementação de um perceptron para simular a operação NAND. Um perceptron pode ser treinado para funcionar como uma porta NAND, onde a saída é 0 apenas quando ambas as entradas são 1. Os pesos são inicializadas de forma aleatórias.
+- Implemente a função de treinamento para ajustar os pesos do perceptron de forma que ele realize corretamente a operação NAND.
+- Utilize o conjunto de treinamento abaixo para ajustar os pesos do perceptron: Conjunto de Treinamento:
+(entrada1, entrada2, saída)
+(0, 0, 1)
+(0, 1, 1)
+(1, 0, 1)
+(1, 1, 0)
+- Após o treinamento, teste o perceptron com as seguintes entradas e verifique se ele está produzindo as saídas corretas:
+(0, 0)  # Saída esperada: 1
+(0, 1)  # Saída esperada: 1
+(1, 0)  # Saída esperada: 1
+(1, 1)  # Saída esperada: 0
+- Comente o código explicando cada parte do processo de treinamento.
+Instruções:
+- Utilize a função limiar para determinar a saída do perceptron com base na soma ponderada. - Inicialize os pesos e o termo de viés de forma arbitrária e ajuste-os durante o treinamento. - Utilize uma taxa de aprendizado fixa (por exemplo, 0.1) durante o treinamento. - Execute várias épocas de treinamento até que o perceptron aprenda corretamente a operação NAND. - Teste o perceptron após o treinamento para garantir que ele está funcionando como esperado.
+*Pode fazer o upload do código comentado, logo no próprio código pode responder os questionamentos da questão de forma comentada.

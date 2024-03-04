@@ -1,0 +1,143 @@
+Atividade 1 de RNAs
+A atividade valerá ponto e deve ser entregue de forma INDIVIDUAL até às 18h00 do dia 21.02.2024.
+
+Nome do Aluno: Francisco Aldenor Silva Neto
+ 
+Matrícula: 20221045050117 
+ 
+1 - Quais os componentes que fazem parte de uma RNA?
+ Neurônios artificiais,  Camadas, Conexões, , Função de ativação, Bias, Algoritmo de aprendizado, Função de perda e Métricas de desempenho,  
+ 
+2 - Qual a diferença da IA simbólica para a IA conexionista?
+ 
+IA Simbólica:
+• Usa símbolos e regras para representar conhecimento.
+• Boa para raciocínio lógico e explicabilidade.
+• Dificuldade em lidar com grandes volumes de dados.
+IA Conexionista:
+• Usa redes neurais para aprender com dados.
+• Boa para aprendizado e reconhecimento de padrões.
+• Falta de explicabilidade e interpretabilidade.
+
+3 - Para que serve a função de ativação?
+ 
+A função de ativação é um componente essencial das RNAs. Ela é responsável por introduzir a não linearidade no processamento da informação, o que permite que as RNAs aprendam e modelem relações complexas nos dados.
+Sem a função de ativação, as RNAs seriam apenas modelos lineares, incapazes de aprender relações complexas.
+
+4 - Em relação a modelagem matemática de uma RNA, onde são guardadas as informações durante seu processo de aprendizagem?
+As informações  são guardadas nos pesos e bias.
+• Pesos: armazenam as informações sobre as relações entre os neurônios.
+• Bias: armazenam informações sobre o limiar de ativação dos neurônios.
+• Ambos os pesos e bias são atualizados durante o processo de aprendizagem. 
+
+5 - Dado o modelo do neurônio de M-P calcule o valor de “u”, tendo como valores de entradas: x1 = 0.1, x2= 0.25, x3= -0.15 e  x4= -1.5, e os pesos são: w1= 0.4, w2 = 0.1, w3 = -0.8 e  w4 = 0.01. Importante lembrar que w0 = -1.
+
+U = x1 * w1  + x2 * w2  + x3 * w3  + x4 * w4 + x0 * w0
+U =0.1 * 0.4  + 0.25 * 0.1  + -0.15 * -0.8  + -1.5 * 0.01 + 1 * (-1)
+U= 0.04 + 0.025 + 0.12 + -0.015 + (-1)
+U= -0.83
+
+6 - O que é a perceptron? Diga também Qual a diferença dela para o neurônio de M.P?
+
+Perceptron é um modelo de aprendizado de máquina que classifica dados binários, sua função de ativação é  linear e determina se a entrada é classificada como 0 ou 1, ele aprende ajustando seus pesos para minimizar o erro de classificação.
+ Diferenças:
+• Função de Ativação: O perceptron usa uma função de ativação linear, enquanto o neurônio de M-P pode usar diferentes funções, como a sigmoide.
+• Aprendizado: O perceptron é capaz de aprender e ajustar seus pesos, enquanto o neurônio de M-P não.
+• Aplicações: O perceptron é usado principalmente para classificação binária, enquanto o neurônio de M-P pode ser usado em diversas aplicações, como classificação, regressão e clustering.
+
+7 - Qual o objetivo da regra delta?
+
+também conhecida como regra de Widrow-Hoff, é um algoritmo fundamental para o aprendizado em RNAs. Seu objetivo principal é ajustar os pesos das conexões entre os neurônios da rede, minimizando o erro de sua saída em relação ao resultado desejado. 
+
+8 - Implemente um neurônio de McCulloch-Pitts em uma linguagem de programação de sua escolha. O neurônio deve receber três entradas binárias (0 ou 1) e emitir um sinal de saída de acordo com a seguinte lógica:
+Se pelo menos duas das entradas são iguais a 1, o neurônio emite um sinal de saída igual a 1. Caso contrário, emite um sinal de saída igual a 0.
+Considere que todos os pesos são 1s. 
+Instruções:
+- Implemente a função neuronio_MP que recebe três entradas binárias e retorna a saída do neurônio de acordo com a lógica especificada.
+- Teste a função com diferentes combinações de entradas para garantir que ela está funcionando corretamente.
+- Explique como a lógica do neurônio de McCulloch-Pitts é aplicada no código.   
+
+*Pode fazer o upload do código comentado, logo no próprio código pode responder os questionamentos da questão de forma comentada.
+
+#x1, x2 e x3 são as entradas binarias 
+def neuronio_MP(x1, x2, x3):
+
+    #u recebe o cálculo de MP, como todos os pesos são 1 não é necessário fazer o produto x*w    
+    u = x1+x2+x3
+#Verifica e gera a saída
+    if u>=2:
+        return 1
+
+    return 0
+    
+#testando a função
+teste = neuronio_MP(1, 1, 0)
+print(teste)
+teste = neuronio_MP(1, 1, 1)
+print(teste)
+teste = neuronio_MP(0, 0, 0)
+print(teste)
+teste = neuronio_MP(1, 0, 0)
+print(teste)
+
+9 - Considere a implementação de um perceptron para simular a operação NAND. Um perceptron pode ser treinado para funcionar como uma porta NAND, onde a saída é 0 apenas quando ambas as entradas são 1. Os pesos são inicializadas de forma aleatórias.
+- Implemente a função de treinamento para ajustar os pesos do perceptron de forma que ele realize corretamente a operação NAND.
+- Utilize o conjunto de treinamento abaixo para ajustar os pesos do perceptron: Conjunto de Treinamento:
+(entrada1, entrada2, saída)
+(0, 0, 1)
+(0, 1, 1)
+(1, 0, 1)
+(1, 1, 0)
+- Após o treinamento, teste o perceptron com as seguintes entradas e verifique se ele está produzindo as saídas corretas:
+(0, 0)  # Saída esperada: 1
+(0, 1)  # Saída esperada: 1
+(1, 0)  # Saída esperada: 1
+(1, 1)  # Saída esperada: 0
+- Comente o código explicando cada parte do processo de treinamento.
+Instruções:
+- Utilize a função limiar para determinar a saída do perceptron com base na soma ponderada. - Inicialize os pesos e o termo de viés de forma arbitrária e ajuste-os durante o treinamento. - Utilize uma taxa de aprendizado fixa (por exemplo, 0.1) durante o treinamento. - Execute várias épocas de treinamento até que o perceptron aprenda corretamente a operação NAND. - Teste o perceptron após o treinamento para garantir que ele está funcionando como esperado.
+*Pode fazer o upload do código comentado, logo no próprio código pode responder os questionamentos da questão de forma comentada.
+package com.app;
+
+import java.util.Random;
+
+public class Perceptron {
+    public static void main(String[] args) {
+        int[][] trainingset = {{0,0,1}, {0,1,1}, {1,0,1}, {1,1,0}}; // portaNAND
+        double eta = 0.1; // passo de aprendizado
+        int maxiterations = 100;
+        Random random = new Random();
+        double w1 = random.nextDouble() * 0.4 - 0.2;
+        double w2 = random.nextDouble() * 0.4 - 0.2;
+        double w0 = 1;
+
+        double error = random.nextDouble() * 0.4 - 0.2;
+        int count = 0;
+        while (count < maxiterations && error != 0) {
+            error = 0;
+            for (int[] array : trainingset) {
+                int target = array[2];
+                int output = 0;
+                double summation = w1 * array[0] + w2 * array[1] - w0;
+                if (summation <=0) {
+                    output = 1;
+                }
+
+                if (output != target) {
+                    error += 1;
+                }
+
+                w1 += eta * (target - output) * array[0]; // regra delta
+                w2 += eta * (target - output) * array[1];
+                w0 += eta * (target - output);
+
+                System.out.println("Saída " + output + " target " + target);
+                System.out.println("Erro " + error);
+            }
+            count++;
+        }
+        System.out.println("Iterações: " + count);
+        System.out.println("Erro final: " + error);
+        System.out.println("w1: " + w1 + ", w2: " + w2 + ", w0: " + w0);
+    }
+}
