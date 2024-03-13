@@ -1,0 +1,67 @@
+Atividade 2 de RNAs
+Nome : Francisco Aldenor Silva Neto
+ 
+Matrícula: 20221045050117
+ 
+1 -  Explique como uma RNA poderia trabalhar junto com a validação cruzada: K-fold, Hold-out, Leave-one-out?
+
+K-fold é um método de validação cruzada que divide o conjunto de dados em K partes de tamanhos iguais. O modelo é treinado em K-1 partes e avaliado na parte restante. Esse processo é repetido K vezes, de modo que cada parte do conjunto de dados seja usada para avaliação uma vez.
+Hold-out é um método de validação cruzada que divide o conjunto de dados em duas partes: treinamento e teste. O modelo é treinado na parte de treinamento e avaliado na parte de teste.
+Leave-one-out é um método de validação cruzada que é um caso especial do K-fold com K igual ao número de exemplos no conjunto de dados. Nesse método, o modelo é treinado em todos os exemplos, exceto um, e avaliado no exemplo que não foi usado para o treinamento.
+ 
+2 – Explique como funciona a Rede Adaline?
+
+A Rede Adaline  Possui apenas uma camada com um único neurônio de saída, ela Recebe diversos valores de entrada (n sinais) e Gera um único valor de saída
+Valores numéricos são fornecidos como entradas para a rede, cada entrada é multiplicada por um peso correspondente (w) e somados. Adiciona-se um valor de polarização (bias) a esse somatório, o  valor resultante da função de ativação é a saída da rede.
+ 
+3 -  O que seria a Madaline?  Quais seus pontos positivos e negativos?
+
+É uma rede neural artificial composta por várias unidades Adaline interconectadas. Ela funciona como um sistema de classificação multiclasse, capaz de distinguir entre diferentes categorias de dados.
+A Madaline possui duas camadas, entrada e saída.
+◦ Camada de entrada: Recebe os valores de entrada (atributos).
+◦ Camada de saída: Possui um neurônio Adaline para cada classe a ser classificada.
+Pontos Positivos da Madaline:
+• Simplicidade: Arquitetura fácil de entender e implementar.
+• Eficiência: Treinamento rápido e eficiente, especialmente em problemas com conjuntos de dados lineamente separáveis.
+• Versatilidade: Aplicações em diversas áreas, como reconhecimento de padrões, classificação de imagens e diagnóstico médico.
+• Interpretabilidade: Facilidade de interpretar os resultados e pesos da rede, possibilitando a compreensão das decisões tomadas.
+Pontos Negativos da Madaline:
+• Linearidade: Limitações em lidar com problemas não linearmente separáveis, necessitando de pré-processamento dos dados ou arquiteturas mais complexas para contornar essa restrição.
+• Escalabilidade: Dificuldade em lidar com conjuntos de dados muito grandes, exigindo maior poder computacional e técnicas otimizadas de treinamento.
+• Sensibilidade a outliers: Influência de valores atípicos no processo de aprendizado, podendo prejudicar a performance da rede.
+• Redes mais complexas: Soluções mais modernas, como redes neurais profundas, podem superar a performance da Madaline em diversos problemas, especialmente em casos com alta não linearidade e grande volume de dados.
+ 
+4 - Qual a diferença entre o Perceptron  e o Adaline?
+ 
+Apesar de compartilharem algumas similaridades, como a estrutura básica com uma única camada de neurônios, existem diferenças importantes entre as duas:
+Função de Ativação:
+• Perceptron: Função de ativação binária (degrau) que gera 0 ou 1.
+• Adaline: Função de ativação linear que gera valores contínuos.
+Interpretação da Saída:
+• Perceptron: Saída binária indica se a entrada pertence a uma classe específica (1) ou não (0).
+• Adaline: Saída linear indica a probabilidade da entrada pertencer a uma classe específica.
+Treinamento:
+• Perceptron: Regra delta binária que ajusta os pesos para minimizar o erro de classificação.
+• Adaline: Regra delta linear que ajusta os pesos para minimizar o erro quadrático médio.
+Aplicações:
+• Perceptron: Ideal para problemas de classificação binária linearmente separáveis.
+• Adaline: Mais versátil, pode ser usado em problemas de classificação linear e regressão linear.
+
+5 - Um neurônio recebe 4 entradas cujos valores são iguais a 10, -20, 4 e -2, bias vale (-1). Os respectivos pesos sinápticos são “0.8”, “0.2”,” -1.0 e  “-0.9”. Calcule a saída do neurônio para as seguintes situações:
+(a) o neurônio tem uma função de ativação é linear.
+
+(10 * 0.8) + (-20 * 0.2) + (4 * -1.0) + (-2 * -0.9) = -1.4
+-1.4 + (-1) = -2.4
+
+(b) o neurônio é baseado na função de ativação limiar (degrau), ou seja, maior que “0” tem uma situação “A”, caso contrário outra “B”.
+
+Como a saída é menor que 0, então temos (B)
+ 
+6 - Implemente uma RNA Adaline para solução do problema "NAND" considerando 2 entradas, apenas. 
+
+7 - Implemente uma RNA Adaline para solução do problema "NOR" considerando 3 entradas. 
+
+resposta no projeto na raiz do zip
+
+8 - Implemente uma RNA Adaline para solução do problema "OR" considerando 3 entradas. 
+
