@@ -1,0 +1,99 @@
+Atividade 3 de RNAs
+
+Aluno: Francisco Aldenor Silva Neto
+Matrícula(s): 20221045050117
+ 
+1 - Qual a vantagem e desvantagem em usar a RNA MLP?
+ 
+Vantagens:
+ Capacidade de Aprendizado Não Linear: As MLPs podem aprender a representar funções não lineares complexas, tornando-as adequadas para uma ampla gama de tarefas de aprendizado.
+ Flexibilidade na Arquitetura: MLPs podem ter várias camadas ocultas e neurônios em cada camada, proporcionando flexibilidade na modelagem de diferentes tipos de dados e problemas.
+ Universal Approximation Theorem: Teoremas como o Universal Approximation Theorem mostram que uma MLP com uma única camada oculta pode aproximar qualquer função contínua em um espaço compacto com precisão arbitrária, desde que haja neurônios suficientes.
+ Treinamento Eficiente: Graças a algoritmos de otimização eficientes como o backpropagation e o gradiente descendente, MLPs podem ser treinadas em grandes conjuntos de dados de forma relativamente rápida.
+ Disponibilidade de Ferramentas e Bibliotecas: Existem muitas bibliotecas de código aberto, como TensorFlow, Keras, PyTorch e scikit-learn, que oferecem implementações eficientes de MLPs e facilitam o desenvolvimento e treinamento de modelos.
+
+Desvantagens:
+ Propensão ao Overfitting: MLPs podem facilmente memorizar ruídos ou padrões irrelevantes nos dados de treinamento, especialmente em conjuntos de dados pequenos ou com alta dimensionalidade, levando ao overfitting.
+ Necessidade de Ajuste de Hiperparâmetros: O desempenho de uma MLP depende significativamente da escolha adequada dos hiperparâmetros, como o número de camadas ocultas, o número de neurônios em cada camada, a taxa de aprendizado, etc. Encontrar os valores ideais pode exigir experimentação extensiva.
+ Requer Grande Quantidade de Dados: MLPs geralmente requerem grandes conjuntos de dados para treinamento eficaz, especialmente quando há muitos parâmetros no modelo. Em conjuntos de dados pequenos, MLPs podem ter dificuldade em generalizar adequadamente.
+ Interpretabilidade Limitada: À medida que a complexidade da rede aumenta, torna-se mais difícil entender e interpretar como as características de entrada são mapeadas para as saídas, dificultando a explicação do comportamento do modelo.
+ Suscetibilidade a Minímos Locais: Durante o treinamento, MLPs podem ficar presas em mínimos locais ou platôs em sua paisagem de erro, o que pode prejudicar o desempenho do modelo. Técnicas como o uso de inicialização adequada dos pesos e algoritmos de otimização adaptativos podem ajudar a mitigar esse problema.
+ 
+2 - Explique como funciona as RNAs MLP?
+ 
+As MLPs tem múltiplas camadas de neurônios, incluindo uma camada de entrada, uma ou mais camadas ocultas e uma camada de saída. Cada neurônio em uma camada está conectado a todos os neurônios na camada seguinte, e cada conexão tem um peso associado. Durante a operação, os sinais de entrada são propagados pela rede, passando por cada camada enquanto são ponderados e transformados pelas funções de ativação não lineares. Essas funções introduzem complexidades nos dados, permitindo que a rede aprenda padrões não lineares. Durante o treinamento, os pesos das conexões são ajustados iterativamente por meio do algoritmo de backpropagation, minimizando o erro entre as saídas previstas e as saídas desejadas. Esse processo continua até que a rede atinja um desempenho satisfatório nos dados de treinamento. Uma vez treinada, a MLP pode generalizar para novos dados, aplicando o conhecimento adquirido durante o treinamento para fazer previsões ou classificações.
+
+3 - Considere a seguinte MLP já treinada com os bias fixos e que classifica um exemplo como sendo da classe 1 se o1 >= o2, e caso contrário é da classe 2. Qual a classe estimada pela rede para o exemplo de entrada: [3, 10, -2]?
+O neurônio H1 da camada oculta recebe os pesos "-1" do bias, 0.2 do x1, -0.1 do x2, 0.4 do x3. O neuronio H2 da camada oculta recebe o peso "-1" do bias, 0.7 do x1, -1.2 do x2, 1.2 do x3.
+neuronio de saida O1 recebe os seguintes pesos: "-1" do bias, 1.1 do H1, 0.1 do H2. Já o O2 recebe -1 do bias,  3.1 do H1 e 1.17 do H2
+*Usar a função de ativação sigmoid.
+ 
+Resposta:
+Soma Ponderada H1 = -1 + (0.2 * 3) + (-0.1 * 10) + (0.4 * -2)
+Soma Ponderada H1 = -2.8
+Saída H1 = 1 / (1 + exp(-2.8))
+Saída H1 =0.212
+
+Soma Ponderada H2 = -1 + (0.7 * 3) + (-1.2 * 10) + (1.2 * -2)
+Soma Ponderada H2 = -12.6
+Saída H2 = 1 / (1 + exp(-12.6))
+Saída H2 =0.011
+
+Soma Ponderada O1 = -1 + (1.1 * 0.212) + (0.1 * 0.011)
+Soma Ponderada O1 = -0.749
+Saída O1 = 1 / (1 + exp(-0.749))
+Saída O1 =0.231
+
+Neurônio O2:
+Soma Ponderada O2 = -1 + (3.1 * 0.212) + (1.17 * 0.011)
+Soma Ponderada O2 = 0.647
+Saída O2 = 1 / (1 + exp(-0.647))
+Saída O2 = 0.647
+
+Como o1 < o2, temos classe 2.
+
+4 - Refaça a questão 3 mudando a função de ativação para tangente hiperbólica na camada oculta e de saída.
+
+Função de ativação tangente hiperbólica :tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))
+
+H1: -1 + (0.2 * 3) + (-0.1 * 10) + (0.4 * -2) = -2.1
+tanh(-2.1) = -0.964028
+
+H2: -1 + (0.7 * 3) + (-1.2 * 10) + (1.2 * -2) = -11.6
+tanh(-11.6) = -0.999955
+
+O1: -1 + (1.1 * -0.964028) + (0.1 * -0.999955) = -2.063983
+tanh(-2.063983) = -0.974724
+
+O2: -1 + (3.1 * -0.964028) + (1.17 * -0.999955) = -4.932917
+tanh(-4.932917) = -0.999999
+
+Como O2 > O1, a classe estimada pela rede para o exemplo de entrada é 2.
+
+5 -  Que tipos de problemas as RNAs MLP são mais aconselháveis de trabalhar? Por que?
+ 
+
+Problemas de Classificação e Reconhecimento de Padrões: As RNAs MLP são comumente usadas em problemas de classificação, nos quais o objetivo é atribuir uma ou mais categorias a uma entrada. Por exemplo, classificação de imagens, reconhecimento de caracteres, detecção de fraudes em transações financeiras, entre outros.
+
+Problemas de Regressão: Elas também são eficazes em problemas de regressão, nos quais o objetivo é prever um valor numérico com base em uma entrada. Isso inclui previsão de séries temporais, como preços de ações, demanda de produtos, temperatura, etc.
+
+Problemas com Dados Não-Lineares e Complexos: As RNAs MLP podem capturar relações não-lineares complexas entre as variáveis de entrada e saída, tornando-as adequadas para problemas nos quais as relações entre os dados não podem ser facilmente descritas por modelos lineares.
+
+Problemas com Grandes Quantidades de Dados: Embora treinar RNAs MLP possa ser computacionalmente intensivo, elas podem ser escalonadas para lidar com grandes conjuntos de dados. Com avanços em hardware e algoritmos de treinamento, as RNAs MLP podem lidar com grandes volumes de dados eficientemente.
+
+Problemas em que os Dados Possuem Características de Entrada Heterogêneas: As RNAs MLP podem lidar bem com conjuntos de dados que possuem uma mistura de tipos de variáveis, como numéricas, categóricas e ordinais, pois podem ser alimentadas com várias representações de entrada.
+
+6 - Implemente uma MLP já treinada com os bias fixos e que classifica um exemplo como sendo da classe 1 se o1 >= o2, e caso contrário é da classe 2. Qual a classe estimada pela rede para os exemplos de entradas: [10, 12, -9] e [-2, 3, 30]? A estrutura da rede é a mesma da questão 4 com função sigmoide
+
+
+código na raiz do zip
+
+7 - Implemente uma Rede Neural Artificial (RNA) do tipo Multilayer Perceptron (MLP), sem treinamento, com os pesos gerados aleatoriamente para resolver o problema de classificação da porta lógica NAND com 2 entradas.
+PS: Certifique-se de utilizar a função de ativação sigmoide para processar os sinais na camada oculta e na camada de saída da MLP.
+
+código na raiz do zip
+
+8 - Implemente uma Rede Neural Artificial (RNA) do tipo Multilayer Perceptron (MLP), sem treinamento, utilizando pesos gerados aleatoriamente para resolver o problema de classificação da porta lógica NOR com 3 entradas.
+PS: Certifique-se de empregar a função de ativação tangente hiperbólica para processar os sinais em ambas as camadas, oculta e de saída, da MLP.
+
+código na raiz do zip
