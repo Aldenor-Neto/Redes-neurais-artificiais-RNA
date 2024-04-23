@@ -1,0 +1,89 @@
+IFCE- Maracanaú
+CURSO: _______________________________________________ Data: 10 / 04 / 2024
+ALUNO(A): Francisco Aldenor Silva Neto Matrícula:20221045050117
+DISCIPLINA: Redes Neurais Artificiais.
+PROF.: Darielson Souza
+INFORMAÇÕES IMPORTANTES PARA SEREM USADAS NO DIA DA PROVA
+CELULARES DEVEM PERMANECER DESLIGADOS E NÃO PODEM SER
+UTILIZADOS COMO CALCULADORA.
+A PROVA SERÁ EM: (X) SALA ( ) LABORATÓRIO
+TIPOS DE CONSULTA (X)Nenhuma ( )Calculadora ( )Outras ____________
+1ª. AVALIAÇÃO
+1ª QUESTÃO (0,5 ponto):
+Sobre a história da IA marque a alternativa incorreta?
+a) As RNAs fazem parte da linha conexionista;
+b) O neurônio de M. P não aprende;
+
+Resposta → c) As RNAs são modelos inspirados em sistemas especialistas;
+
+d) O neurônio de M.P foi o ponto pé inicial para o surgimento das RNAs.
+
+2ª QUESTÂO (1,0 ponto):
+Qual a diferença do neurônio de M.P para a perceptron simples?
+
+Resposta:
+O  Neurônio de M.P  tem a função de ativação binária ,ele dispara se a soma ponderada das entradas for maior ou igual a um limiar. Alem disso ele Não possui capacidade de aprendizado. Os seus pesos são fixos e não podem ser ajustados.
+Já o perceptron simples tem a  função de ativação linear, ele calcula a soma ponderada das entradas e retorna esse valor como saída, e diferente do M.P o perceptron Possui capacidade de aprendizado, seus pesos podem ser ajustados através do algoritmo de regra delta, que minimiza o erro de classificação.
+
+3ª QUESTÃO ( 1,0 ponto) :
+Explique como funciona a Regra Delta?
+
+Resposta
+A rede recebe um conjunto de dados como entrada, a informação flui pela rede, passando por cada neurônio, cada neurônio calcula a soma ponderada de suas entradas e aplica sua função de ativação para gerar uma saída, essa saída é comparada com a desejada, calculando-se o erro, O erro é propagado de volta pela rede, camada por camada, essas etapas são repetidas até que o erro seja suficientemente minimizado ou um número máximo de iterações seja atingido. 
+
+4ª QUESTÃO (1,5 ponto):
+Por que a perceptron simples não consegue classificar a porta lógica “XOR”? Justifique sua resposta?
+
+Resposta:
+por conta que a função XOR não é linearmente separável, ou seja, não é possível traçar uma única linha reta que divida os pontos de entrada em duas classes distintas, A porta XOR retorna True se e somente se uma das entradas for True e a outra for False. Isso significa que os pontos de entrada que representam os casos True e False da porta XOR não podem ser separados por uma única linha reta.
+se pegarmos o plano cartesiano onde temos x como a 1ª entrada e y como a 2ª entrada da porta XOR  veremos que é impossivel separarmos as classes com apenas uma reta.
+	1	0
+	|
+	0_1
+
+5ª QUESTÃO (1,5 ponto):
+A rede neural MLP está dentro de qual paradigma de aprendizado? Por quê?
+
+Resposta:
+ela se encaixa no paradigma de aprendizado supervisionado, pois   possui treinamento onde esse treinamento acontece em um conjunto de dados que possui entradas e saídas desejadas, esse processo de treinamento busca minimizar o erro entre as saídas da rede e as saídas desejadas, após o treinamento, ela pode ser utilizada para prever as saídas para novos conjuntos de dados, ou seja, para dados que não foram utilizados durante o treinamento. 
+
+6ª QUESTÃO (2,0 ponto):
+Dado o modelo do neurônio de M-P calcule o valor de “y”, sabendo que a função de ativação é a
+limiar sendo g(.) &gt; 0 pertence a classe “A”, caso contrário “classe B”. Tendo como valores de
+entradas x1= 0.01, x2= -0.21, x3= 0.09 e  x4= -1.3, e os pesos são: w1= 0.01, w2= -0.8, w3= 0.1 e  w4=
+-0.18. Importante lembrar que θ= w0=-1.
+
+Resposta:
+S = (x1 * w1) + (x2 * w2) + (x3 * w3) + (x4 * w4) + θ
+S = (0.01 * 0.01) + (-0.21 * -0.8) + (0.09 * 0.1) + (-1.3 * -0.18) - 1
+Y = 0.1804
+
+Como Y>=0, logo pertence a classe "A"
+
+7ª QUESTÃO (2,5 ponto):
+Considere a seguinte MLP já treinada com os bias fixos e que classifica um exemplo como sendo da
+classe 1 se o1 &gt; o2, e da classe 2 caso contrário. Qual a classe estimada pela rede para o exemplo
+de entrada: [10, -2, 8]? *Usar a função de ativação sigmoid.
+PS: A rede possui dois neurônios na camada oculta, o H1 da camada oculta recebe os pesos &quot;-1&quot; do
+bias, 0.2 do x1, -0.1 do x2 e 0.4 do x3. O neurônio H2 da camada oculta recebe o peso &quot;-1&quot; do bias, 0.7
+do x1, -1.2 do x2 e 1.2 do x3. Já o neurônio de saída O1 recebe os seguintes pesos: &quot;-1&quot; do bias, 1.1 do
+H1 e 0.1 do H2. Logo o O2 recebe -1 do bias, 3.1 do H1 e 1.17 do H2.
+
+Resposta:
+S_H1 = (0.2 * 10) + (-0.1 * -2) + (0.4 * 8) + (-1) 
+S_H1 = 8.1
+sigmoid(8.1) = 0.999877
+
+S_H2 = (0.7 * 10) + (-1.2 * -2) + (1.2 * 8) + (-1) 
+S_H2 = 19.9
+sigmoid(19.9) = 0.999999
+
+S_O1 = (1.1 * 0.999877) + (0.1 * 0.999999) + (-1) 
+S_O1 = 0.099977
+sigmoid(0.099977) = 0.500073
+
+S_O2 = (3.1 * 0.999877) + (1.17 * 0.999999) + (-1) 
+S_O2 = 2.19977
+sigmoid(2.19977) = 0.999999
+
+Como O1<O2, logo pertence a classe "2".
